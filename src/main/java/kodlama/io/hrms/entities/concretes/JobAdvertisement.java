@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -55,10 +56,9 @@ public class JobAdvertisement {
 	private boolean isActive;
 
 	
-	@CreationTimestamp
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "release_date")
-	private Date releaseDate;
+	@Column(name = "release_date",columnDefinition = "Date default CURRENT_DATE")
+	@JsonIgnore
+	private LocalDate releaseDate=LocalDate.now();
 
 	@ManyToOne
 	@JoinColumn(name = "city_id")

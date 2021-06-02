@@ -17,6 +17,7 @@ import kodlama.io.hrms.business.abstracts.JobAdvertisementService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.JobAdvertisement;
+import kodlama.io.hrms.entities.dtos.JobAdvertisementDto;
 
 @RestController
 @RequestMapping("/api/jobAdvertisement")
@@ -66,6 +67,15 @@ public class JobAdvertisementsController {
 	@GetMapping("/passivateAdvert")
 	public Result passivateAdvert(int id) {
 		return this.jobAdvertisementService.passivateAdvert(id);
+		
+	}
+	
+	@GetMapping("getJobAdvertisementDetails")
+	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails(){
+		return this.jobAdvertisementService.getJobAdvertisementDetails();
+		
+		
+		
 		
 	}
 }

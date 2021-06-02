@@ -9,32 +9,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlama.io.hrms.business.abstracts.JobService;
+import kodlama.io.hrms.business.abstracts.CvService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
-import kodlama.io.hrms.entities.concretes.Job;
+import kodlama.io.hrms.entities.concretes.Cv;
+import kodlama.io.hrms.entities.dtos.CvDto;
+
 
 @RestController
-@RequestMapping("/api/jobs")
-public class JobsController {
+@RequestMapping("/api/cvController")
+public class CvController {
+	
+	private CvService cvService ;
 	@Autowired
-	private JobService jobService;
-
-	public JobsController(JobService jobService) {
+	public CvController(CvService cvService) {
 		super();
-		this.jobService = jobService;
+		this.cvService = cvService;
 	}
-
-	@GetMapping("/getall")
-	public DataResult<List<Job>> getAll() {
-
-		return this.jobService.getAll();
+	
+	
+	@GetMapping("/getAll")
+	DataResult<List<Cv>> getAll(){
+		return this.cvService.getAll();
+		
 	}
-
 	@PostMapping("/add")
-	public Result add(@RequestBody Job job) {
-		return this.jobService.add(job);
-
+	Result add(@RequestBody Cv cv ) {
+		return this.cvService.add(cv);
 	}
+	
+	@GetMapping("/getCvDetails")
+	DataResult<List<CvDto>> getCvDetails(){
+		return this.cvService.getCvDetail();
+		
+	}
+			
 
 }

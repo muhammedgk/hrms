@@ -14,6 +14,7 @@ import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.dataAccess.abstracts.JobAdvertisementDao;
 import kodlama.io.hrms.entities.concretes.JobAdvertisement;
+import kodlama.io.hrms.entities.dtos.JobAdvertisementDto;
 
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService {
@@ -63,6 +64,11 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 		jobAdvertisement.setActive(false);
 		jobAdvertisementDao.save(jobAdvertisement);
 		return new SuccessResult("İş ilanı pasif hale getirildi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails() {
+		return new SuccessDataResult<List<JobAdvertisementDto>>(this.jobAdvertisementDao.getJobAdvertisementDetails(), "Data Listelendi");
 	}
 
 }

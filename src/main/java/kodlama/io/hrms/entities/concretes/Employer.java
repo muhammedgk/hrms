@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "employer_id")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdverts"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisement"})
 public class Employer extends User {
 
 	@Column(name="company_name")
@@ -37,6 +37,6 @@ public class Employer extends User {
 	private boolean isVerify;
 	
 	@OneToMany(mappedBy = "employer")
-	private List<JobAdvertisement> jobAdverts;
+	private List<JobAdvertisement> jobAdvertisement;
 
 }

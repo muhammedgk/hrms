@@ -35,6 +35,11 @@ public class Job {
 	@OneToMany(mappedBy = "job")
 	private List<JobAdvertisement> jobAdverts;
 	
+	@OneToMany(mappedBy = "job")
+	private List<JobExperience> jobExperiance;
+	
+	
+	
 	
 
 	
