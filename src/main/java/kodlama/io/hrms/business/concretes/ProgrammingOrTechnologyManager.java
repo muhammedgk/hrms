@@ -34,6 +34,7 @@ public class ProgrammingOrTechnologyManager implements ProgrammingOrTechnologySe
 		this.programmingOrTechnologyDao.save(programmingOrTechnology);
 		return new SuccessDataResult<List<ProgrammingOrTechnology>>(this.programmingOrTechnologyDao.findAll(),
 				"Data Eklendi");
+		
 	}
 
 }

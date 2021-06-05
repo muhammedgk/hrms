@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -49,7 +51,7 @@ public class Cv {
 	private boolean isActive;
 
 	@Column(name = "release_date")
-	private LocalDate releaseDate;
+	private LocalDate releaseDate=LocalDate.now();
 
 	@Column(name = "last_update_date")
 	private LocalDate lastUpdateDate;

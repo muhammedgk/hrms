@@ -12,10 +12,10 @@ public interface CvDao extends JpaRepository<Cv, Integer> {
 	
 	
 	
-	@Query("Select new kodlama.io.hrms.entities.dtos.CvDto"
-			+ "(c.firstName,c.lastName,c.nationalId,u.email,z.githubLink,z.linkedLink,z.releaseDate,z.lastUpdateDate)"
-			+ " From User u,Candidate c,Cv z")
-	List<CvDto> getCvDetails();
+//	@Query("Select new kodlama.io.hrms.entities.dtos.CvDto"
+//			+ "(c.firstName,c.lastName,c.nationalId,u.email,z.githubLink,z.linkedLink,z.releaseDate,z.lastUpdateDate)"
+//			+ " From User u,Candidate c,Cv z")
+//	List<CvDto> getCvDetails();
 	
 	
 	

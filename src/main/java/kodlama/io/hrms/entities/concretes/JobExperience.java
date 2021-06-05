@@ -44,7 +44,7 @@ public class JobExperience {
 	private LocalDate endDate;
 	
 	@Column(name="date_of_upload")
-	private LocalDate dateOfUpload;
+	private LocalDate dateOfUpload=LocalDate.now();
 	
 	@ManyToOne()
 	@JoinColumn(name="cv_id")
