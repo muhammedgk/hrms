@@ -15,9 +15,10 @@ public class JobAdvertisementDto {
 	private String companyName;
 	private  String jobName;
 	private int openPosition;
+	private String jobDescription;
 	private LocalDate releaseDate;
 	private LocalDate applicationDeadline;
-	private String jobDescription;
+	
 	
 
 	
