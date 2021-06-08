@@ -9,12 +9,12 @@ import kodlama.io.hrms.entities.concretes.JobAdvertisement;
 import kodlama.io.hrms.entities.dtos.JobAdvertisementDto;
 
 public interface JobAdvertisementService {
-	DataResult<List<JobAdvertisement>> getAll();
+	DataResult<List<JobAdvertisementDto>> getAll();
 	Result add(JobAdvertisement jobAdvertisement);
 	DataResult<List<JobAdvertisement>> findByIsActiveTrue();
 	DataResult<List<JobAdvertisement>> getByApplicationDeadlineLessThanEqualAndIsActiveTrue(LocalDate date);
 	DataResult<List<JobAdvertisement>> findByEmployer(int employerId);
 	Result passivateAdvert(int id);
-	DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails(); 
+//	DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails(); 
 
 }

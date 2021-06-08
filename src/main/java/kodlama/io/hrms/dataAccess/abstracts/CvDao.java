@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import kodlama.io.hrms.entities.concretes.Cv;
-import kodlama.io.hrms.entities.dtos.CvDto;
+import kodlama.io.hrms.entities.dtos.CvGetDto;
 
 public interface CvDao extends JpaRepository<Cv, Integer> {
 	

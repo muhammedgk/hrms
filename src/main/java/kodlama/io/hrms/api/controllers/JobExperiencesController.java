@@ -13,6 +13,7 @@ import kodlama.io.hrms.business.abstracts.JobExperienceService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.JobExperience;
+import kodlama.io.hrms.entities.dtos.JobExperienceDto;
 
 @RestController
 @RequestMapping("/api/jobExperiences")
@@ -27,13 +28,13 @@ public class JobExperiencesController {
 	}
 
 	@GetMapping("/getAll")
-	DataResult<List<JobExperience>> getAll() {
+	DataResult<List<JobExperienceDto>> getAll() {
 		return this.jobExperienceService.getAll();
 
 	}
 	@PostMapping("/add")
-	public Result add(@RequestBody JobExperience jobExperience) {
-		return this.jobExperienceService.add(jobExperience);
+	public Result add(@RequestBody JobExperienceDto jobExperienceDto) {
+		return this.jobExperienceService.add(jobExperienceDto);
 
 	}
 

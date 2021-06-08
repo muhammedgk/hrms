@@ -13,6 +13,7 @@ import kodlama.io.hrms.business.abstracts.ForeignLanguageService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.ForeignLanguage;
+import kodlama.io.hrms.entities.dtos.ForeignLanguageDto;
 
 @RestController
 @RequestMapping("/api/foreignLanguages")
@@ -27,14 +28,14 @@ public class ForeignLanguagesController {
 	
 	
 	@GetMapping("/getAll")
-	DataResult<List<ForeignLanguage>> getAll(){
+	DataResult<List<ForeignLanguageDto>> getAll(){
 		return this.foreignLanguageService.getAll();
 		
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody ForeignLanguage foreignLanguge){
-		return this.foreignLanguageService.add(foreignLanguge);
+	public Result add(@RequestBody ForeignLanguageDto foreignLangugeDto){
+		return this.foreignLanguageService.add(foreignLangugeDto);
 		
 	}
 			

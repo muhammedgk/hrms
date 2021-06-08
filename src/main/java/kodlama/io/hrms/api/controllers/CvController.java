@@ -16,7 +16,8 @@ import kodlama.io.hrms.business.abstracts.CvService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.Cv;
-import kodlama.io.hrms.entities.dtos.CvDto;
+import kodlama.io.hrms.entities.dtos.CvAddDto;
+import kodlama.io.hrms.entities.dtos.CvGetDto;
 
 
 @RestController
@@ -32,13 +33,13 @@ public class CvController {
 	
 	
 	@GetMapping("/getAll")
-	DataResult<List<Cv>> getAll(){
+	DataResult<List<CvGetDto>> getAll(){
 		return this.cvService.getAll();
 		
 	}
 	@PostMapping("/add")
-	Result add(@RequestBody Cv cv ) {
-		return this.cvService.add(cv);
+	Result add(@RequestBody CvAddDto cvAddDto ) {
+		return this.cvService.add(cvAddDto);
 	}
 	
 

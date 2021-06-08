@@ -3,6 +3,7 @@ package kodlama.io.hrms.entities.concretes;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,7 +34,7 @@ public class Cv {
 	@Column(name = "id")
 	private int id;
 
-	@ManyToOne
+	@ManyToOne(targetEntity = Candidate.class)
 	@JoinColumn(name = "candidate_id", referencedColumnName =  "id" ,nullable = false )
 	private Candidate candidate;
 
@@ -56,16 +59,20 @@ public class Cv {
 	@Column(name = "last_update_date")
 	private LocalDate lastUpdateDate;
 
-	@OneToMany(mappedBy = "cv")
+	
+	@OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
 	private List<ForeignLanguage> foreignLanguages;
 
-	@OneToMany(mappedBy = "cv")
+	
+	@OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
 	private List<ProgrammingOrTechnology> programmingOrTechnology;
 
-	@OneToMany(mappedBy = "cv")
+	
+	@OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
 	private List<School> school;
 
-	@OneToMany(mappedBy = "cv")
+	
+	@OneToMany(mappedBy = "cv", cascade = CascadeType.ALL)
 	private List<JobExperience> jobExperiences;
 
 }

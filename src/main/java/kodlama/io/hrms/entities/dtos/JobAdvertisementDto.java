@@ -12,10 +12,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JobAdvertisementDto {
 	
-	private String companyName;
+	private int id;
+	private String employerCompanyName;
 	private  String jobName;
 	private int openPosition;
 	private String jobDescription;
+	private int minSalary;
+	private int maxSalary;
+	private boolean active;
 	private LocalDate releaseDate;
 	private LocalDate applicationDeadline;
 	

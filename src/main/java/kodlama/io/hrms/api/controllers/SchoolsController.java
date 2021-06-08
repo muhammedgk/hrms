@@ -13,6 +13,7 @@ import kodlama.io.hrms.business.abstracts.SchoolService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.School;
+import kodlama.io.hrms.entities.dtos.SchoolDto;
 
 @RestController
 @RequestMapping("/api/schools")
@@ -27,13 +28,13 @@ public class SchoolsController {
 	}
 
 	@GetMapping("/getAll")
-	DataResult<List<School>> getAll() {
+	DataResult<List<SchoolDto>> getAll() {
 		return this.schoolService.getAll();
 	}
 
 	@PostMapping("/add")
-	Result add(@RequestBody School school) {
-		return this.schoolService.add(school);
+	Result add( @RequestBody SchoolDto schoolDto) {
+		return this.schoolService.add(schoolDto);
 	}
 
 }

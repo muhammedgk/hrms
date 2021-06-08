@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="programming_or_technology")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","cv"})
+
 public class ProgrammingOrTechnology {
 	
 	@Id
@@ -36,7 +38,8 @@ public class ProgrammingOrTechnology {
 	@Column(name="date_of_upload")
 	private LocalDate dateOfUpload=LocalDate.now();
 	
-	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
+	@ManyToOne(targetEntity = Cv.class)
 	@JoinColumn(name="cv_id")
 	private Cv cv;
 

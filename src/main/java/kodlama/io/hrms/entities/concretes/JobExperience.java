@@ -1,6 +1,7 @@
 package kodlama.io.hrms.entities.concretes;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="job_experience")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","cv"})
+
 public class JobExperience {
 	
 	@Id
@@ -30,11 +32,17 @@ public class JobExperience {
 	@Column(name="id")
 	private int id;
 	
+	@JsonProperty(access = Access.WRITE_ONLY)
+	@ManyToOne(targetEntity = Cv.class)
+	@JoinColumn(name="cv_id")
+	private Cv cv;
+	
 	@Column(name="workplace_name")
 	private String workplaceName;
 	
-	@ManyToOne
-	@JoinColumn(name="job_position")
+	
+	@ManyToOne(targetEntity = Job.class)
+	@JoinColumn(name = "job_position", referencedColumnName =  "job_id" ,nullable = false)
 	private Job job ;
 	
 	@Column(name="start_date")
@@ -46,9 +54,8 @@ public class JobExperience {
 	@Column(name="date_of_upload")
 	private LocalDate dateOfUpload=LocalDate.now();
 	
-	@ManyToOne()
-	@JoinColumn(name="cv_id")
-	private Cv cv;
+	
+	
 	
 	
 

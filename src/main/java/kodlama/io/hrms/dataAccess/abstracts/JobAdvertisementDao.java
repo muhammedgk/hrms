@@ -21,8 +21,8 @@ public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement, Int
 	List<JobAdvertisement> findByEmployer(int employerId);
 
 	
-	@Query("Select new kodlama.io.hrms.entities.dtos.JobAdvertisementDto"
-			+ "(e.companyName,a.name,j.openPosition,j.jobDescription,j.releaseDate,j.applicationDeadline) " 
-			+ "From Employer e inner join e.jobAdvertisement j inner join j.job a")
-	List<JobAdvertisementDto> getJobAdvertisementDetails(); 
+//	@Query("Select new kodlama.io.hrms.entities.dtos.JobAdvertisementDto"
+//			+ "(e.companyName,a.name,j.openPosition,j.jobDescription,j.releaseDate,j.applicationDeadline) " 
+//			+ "From Employer e inner join e.jobAdvertisement j inner join j.job a")
+//	List<JobAdvertisementDto> getJobAdvertisementDetails(); 
 }

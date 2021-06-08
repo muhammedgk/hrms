@@ -32,11 +32,10 @@ public class Job {
 	private String name;
 	
 	
-	@OneToMany(mappedBy = "job")
-	private List<JobAdvertisement> jobAdverts;
+//	@OneToMany(mappedBy = "job")
+//	private List<JobAdvertisement> jobAdverts;
 	
-	@OneToMany(mappedBy = "job")
-	private List<JobExperience> jobExperiance;
+	
 	
 	
 	

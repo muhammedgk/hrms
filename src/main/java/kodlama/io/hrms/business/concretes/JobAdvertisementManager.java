@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 
 import kodlama.io.hrms.business.abstracts.JobAdvertisementService;
+import kodlama.io.hrms.core.utilities.dtoConverter.DtoConverterService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
@@ -20,15 +21,17 @@ import kodlama.io.hrms.entities.dtos.JobAdvertisementDto;
 public class JobAdvertisementManager implements JobAdvertisementService {
 	@Autowired
 	private JobAdvertisementDao jobAdvertisementDao;
+	private DtoConverterService dtoConverterService;
 
-	public JobAdvertisementManager(kodlama.io.hrms.dataAccess.abstracts.JobAdvertisementDao jobAdvertisementDao) {
+	public JobAdvertisementManager(JobAdvertisementDao jobAdvertisementDao,DtoConverterService dtoConverterService) {
 		super();
 		this.jobAdvertisementDao = jobAdvertisementDao;
+		this.dtoConverterService=dtoConverterService;
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisement>> getAll() {
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAll(), "Data Listelendi");
+	public DataResult<List<JobAdvertisementDto>> getAll() {
+		return new SuccessDataResult<List<JobAdvertisementDto>>(this.dtoConverterService.dtoConverter(this.jobAdvertisementDao.findAll(), JobAdvertisementDto.class), "Data Listelendi");
 	}
 
 	@Override
@@ -66,9 +69,9 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 		return new SuccessResult("İş ilanı pasif hale getirildi");
 	}
 
-	@Override
-	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails() {
-		return new SuccessDataResult<List<JobAdvertisementDto>>(this.jobAdvertisementDao.getJobAdvertisementDetails(), "Data Listelendi");
-	}
+//	@Override
+//	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails() {
+//		return new SuccessDataResult<List<JobAdvertisementDto>>(this.jobAdvertisementDao.getJobAdvertisementDetails(), "Data Listelendi");
+//	}
 
 }

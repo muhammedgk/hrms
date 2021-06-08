@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,7 @@ import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.JobAdvertisement;
 import kodlama.io.hrms.entities.dtos.JobAdvertisementDto;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/jobAdvertisement")
 public class JobAdvertisementsController {
@@ -32,7 +33,7 @@ public class JobAdvertisementsController {
 	}
 
 	@GetMapping("/getAll")
-	DataResult<List<JobAdvertisement>> getAll() {
+	DataResult<List<JobAdvertisementDto>> getAll() {
 		return this.jobAdvertisementService.getAll();
 
 	}
@@ -70,12 +71,12 @@ public class JobAdvertisementsController {
 		
 	}
 	
-	@GetMapping("getJobAdvertisementDetails")
-	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails(){
-		return this.jobAdvertisementService.getJobAdvertisementDetails();
+//	@GetMapping("getJobAdvertisementDetails")
+//	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails(){
+//		return this.jobAdvertisementService.getJobAdvertisementDetails();
 		
 		
 		
 		
-	}
+	
 }

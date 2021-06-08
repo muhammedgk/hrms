@@ -13,6 +13,7 @@ import kodlama.io.hrms.business.abstracts.ProgrammingOrTechnologyService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.ProgrammingOrTechnology;
+import kodlama.io.hrms.entities.dtos.ProgrammingOrTechnologyDto;
 
 @RestController
 @RequestMapping("/api/programmingOrTechnology")
@@ -27,13 +28,13 @@ public class ProgrammingOrTechnologyController {
 	}
 
 	@GetMapping("/getAll")
-	DataResult<List<ProgrammingOrTechnology>> getAll() {
+	DataResult<List<ProgrammingOrTechnologyDto>> getAll() {
 		return this.programmingOrTechnologyService.getAll();
 	}
 
 	@PostMapping("/add")
-	Result add(@RequestBody ProgrammingOrTechnology programmingOrTechnology) {
-		return this.programmingOrTechnologyService.add(programmingOrTechnology);
+	Result add(@RequestBody ProgrammingOrTechnologyDto programmingOrTechnologyDto) {
+		return this.programmingOrTechnologyService.add(programmingOrTechnologyDto);
 
 	}
 
