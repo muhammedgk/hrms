@@ -36,8 +36,8 @@ public class CvManager implements CvService {
 
 	@Override
 	public DataResult<List<CvGetDto>> getAll() {
-		return new SuccessDataResult<List<CvGetDto>>(dtoConverterService.dtoConverter
-				(this.cvDao.findAll(), CvGetDto.class),"Data Listelendi");
+		return new SuccessDataResult<List<CvGetDto>>
+		(dtoConverterService.dtoConverter(this.cvDao.findAll(), CvGetDto.class),"Data Listelendi");
 	}
 
 	@Override
@@ -63,5 +63,7 @@ public class CvManager implements CvService {
 
 		return new SuccessResult(" -> İşlem Başarılı!");
 	}
+
+
 
 }

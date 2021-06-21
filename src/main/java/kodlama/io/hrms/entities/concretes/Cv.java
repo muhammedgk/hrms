@@ -54,7 +54,7 @@ public class Cv {
 	private boolean isActive;
 
 	@Column(name = "release_date")
-	private LocalDate releaseDate=LocalDate.now();
+	private LocalDate releaseDate;
 
 	@Column(name = "last_update_date")
 	private LocalDate lastUpdateDate;

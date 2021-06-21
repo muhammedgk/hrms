@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CvGetDto {
-	@JsonProperty(access = Access.READ_ONLY)
+	
 	public int id;
 	public int candidateId;
 	public String candidateFirstName;

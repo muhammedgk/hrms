@@ -4,12 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
 public class DtoConverterManager implements DtoConverterService {
 
 	private ModelMapper modelMapper;
-
+	@Autowired
 	public DtoConverterManager(ModelMapper modelMapper) {
 		super();
 		this.modelMapper = modelMapper;
