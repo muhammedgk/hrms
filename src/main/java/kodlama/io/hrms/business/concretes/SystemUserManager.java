@@ -9,6 +9,7 @@ import kodlama.io.hrms.business.abstracts.SystemUserService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
+import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.dataAccess.abstracts.SystemUserDao;
 import kodlama.io.hrms.entities.concretes.SystemUser;
 @Service
@@ -31,6 +32,17 @@ public class SystemUserManager implements SystemUserService {
 	public Result add(SystemUser systemUser) {
 		this.systemUserDao.save(systemUser);
 		return new SuccessDataResult<List<SystemUser>>(this.systemUserDao.findAll(),"Sistem Kullanıcısı Eklendi");
+	}
+
+	@Override
+	public Result update(int id, SystemUser systemUser) {
+		this.systemUserDao.getOne(id);
+		systemUser.setFirstName(systemUser.getFirstName());
+		systemUser.setLastName(systemUser.getLastName());
+		systemUser.setEmail(systemUser.getEmail());
+		systemUser.setPassword(systemUser.getPassword());
+		this.systemUserDao.save(systemUser);
+		return new SuccessResult("Başarılı");
 	}
 
 }

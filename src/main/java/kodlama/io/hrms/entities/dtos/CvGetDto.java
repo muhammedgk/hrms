@@ -3,8 +3,6 @@ package kodlama.io.hrms.entities.dtos;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import kodlama.io.hrms.entities.concretes.ForeignLanguage;
 import kodlama.io.hrms.entities.concretes.JobExperience;
@@ -26,8 +24,11 @@ public class CvGetDto {
 	public String candidateLastName;
 	public String candidateNationalId;
 	public String candidateEmail;
+	public String candidateBirthYear;
 	public String githubLink;
 	public String linkedLink;
+	private String photo;
+	private String description;
 	public LocalDate releaseDate;
 	public LocalDate lastUpdateDate;
 	private List<JobExperience> jobExperiences;

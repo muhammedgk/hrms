@@ -54,12 +54,21 @@ public class JobAdvertisement {
 
 	
 	@Column(name = "release_date",columnDefinition = "Date default CURRENT_DATE")
-	@JsonIgnore
+	
 	private LocalDate releaseDate=LocalDate.now();
 
 	@ManyToOne
 	@JoinColumn(name = "city_id")
 	private City city;
+	
+	@ManyToOne
+	@JoinColumn(name = "workplaces_id")
+	private Workplace workplace;
+	
+	@ManyToOne
+	@JoinColumn(name = "worktime_id")
+	private Worktime worktime;
+
 
 	@ManyToOne
 	@JoinColumn(name = "job_id")

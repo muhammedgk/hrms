@@ -1,6 +1,5 @@
 package kodlama.io.hrms.entities.concretes;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -19,6 +18,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "user_id")
 public class Candidate extends User {
+	
+	@Column(name="id")
+	private int candidateId;
 
 	@Column(name = "first_name")
 	private String firstName;

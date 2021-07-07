@@ -3,10 +3,13 @@ package kodlama.io.hrms.api.controllers;
 import java.io.IOException;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,12 +47,21 @@ public class CvController {
 		return this.cvService.add(cvAddDto);
 	}
 	
-
+	@PutMapping("update")
+	Result update(@Valid @RequestBody int cvId , CvAddDto cvAddDto ) {
+		return this.cvService.update(cvId,cvAddDto);
 		
+	}
+	
+	
 	
 	@PostMapping("/upload")
 	Result upload(int cvId,MultipartFile multipartFile) throws IOException {
 		return this.cvService.uploadCvPhoto(cvId, multipartFile);
+	}
+	@GetMapping("/findByCvId")
+	DataResult<Cv> findByCvId(int id){
+		return this.cvService.findById(id);
 	}
 			
 

@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -67,6 +69,18 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 		jobAdvertisement.setActive(false);
 		jobAdvertisementDao.save(jobAdvertisement);
 		return new SuccessResult("İş ilanı pasif hale getirildi");
+	}
+
+	@Override
+	public DataResult<JobAdvertisement> findById(int id) {
+		return new SuccessDataResult<JobAdvertisement>(this.jobAdvertisementDao.findById(id),"Başarılı");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> getAll(int pageNo, int pageSize) {
+		Pageable pageable = PageRequest.of(pageNo-1, pageSize);
+
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAll(pageable).getContent());
 	}
 
 //	@Override

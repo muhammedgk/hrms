@@ -14,11 +14,13 @@ public class JobAdvertisementDto {
 	
 	private int id;
 	private String employerCompanyName;
-	private  String jobName;
+	private String jobName;
 	private int openPosition;
 	private String jobDescription;
 	private int minSalary;
 	private int maxSalary;
+	private String workplaceName;
+	private String worktimeName;
 	private boolean active;
 	private LocalDate releaseDate;
 	private LocalDate applicationDeadline;

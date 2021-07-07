@@ -15,6 +15,7 @@ public interface CvService {
 	
 	DataResult<List<CvGetDto>> getAll();
 	Result add(CvAddDto cvAddDto);
+	Result update(int cvId,CvAddDto cvAddDto);
 	Result uploadCvPhoto(int CvId, MultipartFile multipartFile) throws IOException;
-
+	DataResult<Cv> findById(int id);
 }

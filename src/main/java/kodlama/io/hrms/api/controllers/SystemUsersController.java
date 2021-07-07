@@ -2,9 +2,12 @@ package kodlama.io.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +37,12 @@ public class SystemUsersController {
 	public Result add(@RequestBody SystemUser systemUser) {
 		return this.systemUserService.add(systemUser);
 	} 
+	
+	@PutMapping("/update")
+	public Result update(@Valid @RequestBody int id , SystemUser systemUser) {
+		
+		return this.systemUserService.update(id, systemUser);
+	}
 
 
 }

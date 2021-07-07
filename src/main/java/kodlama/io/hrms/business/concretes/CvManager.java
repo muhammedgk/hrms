@@ -1,6 +1,8 @@
 package kodlama.io.hrms.business.concretes;
 
+import java.io.Console;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,6 +66,23 @@ public class CvManager implements CvService {
 		return new SuccessResult(" -> İşlem Başarılı!");
 	}
 
+	@Override
+	public Result update(int cvId ,CvAddDto cvAddDto) {
+		Cv cv = this.cvDao.getOne(cvId);
+		cv.setGithubLink(cv.getGithubLink());
+		cv.setLinkedLink(cv.getLinkedLink());
+		cv.setDescription(cv.getDescription());
+		cv.setLastUpdateDate(cv.getLastUpdateDate());
+		cv.setLastUpdateDate(LocalDate.now());
+		cv.setReleaseDate(LocalDate.now());
+		this.cvDao.save((Cv) this.dtoConverterService.dtoClassConverter(cvAddDto, Cv.class));
+		return new SuccessResult("Başarılı");
+	}
+
+	@Override
+	public DataResult<Cv> findById(int id) {
+		return new SuccessDataResult<Cv>(this.cvDao.findById(id));
+	}
 
 
 }

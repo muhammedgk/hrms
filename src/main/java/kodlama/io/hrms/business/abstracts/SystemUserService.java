@@ -10,5 +10,6 @@ import kodlama.io.hrms.entities.concretes.SystemUser;
 public interface SystemUserService {
 	DataResult<List<SystemUser>> getAll();
 	Result add(SystemUser systemUser);
+	Result update(int id ,SystemUser systemUser);
 
 }

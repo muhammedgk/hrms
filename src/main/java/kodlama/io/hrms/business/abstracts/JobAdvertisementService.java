@@ -12,9 +12,11 @@ public interface JobAdvertisementService {
 	DataResult<List<JobAdvertisementDto>> getAll();
 	Result add(JobAdvertisement jobAdvertisement);
 	DataResult<List<JobAdvertisement>> findByIsActiveTrue();
+	DataResult<JobAdvertisement> findById(int id);
 	DataResult<List<JobAdvertisement>> getByApplicationDeadlineLessThanEqualAndIsActiveTrue(LocalDate date);
 	DataResult<List<JobAdvertisement>> findByEmployer(int employerId);
 	Result passivateAdvert(int id);
 //	DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails(); 
+	DataResult<List<JobAdvertisement>> getAll(int pageNo, int pageSize);
 
 }

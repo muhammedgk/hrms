@@ -70,6 +70,15 @@ public class JobAdvertisementsController {
 		return this.jobAdvertisementService.passivateAdvert(id);
 		
 	}
+	@GetMapping("/findbyid")
+	DataResult<JobAdvertisement> getById(@RequestParam int id){
+		return this.jobAdvertisementService.findById(id);
+	}
+	@GetMapping("/getAllByPage")
+	public DataResult<List<JobAdvertisement>> getAll(int pageNo,int pageSize){
+		return this.jobAdvertisementService.getAll(pageNo, pageSize);
+		
+	}
 	
 //	@GetMapping("getJobAdvertisementDetails")
 //	public DataResult<List<JobAdvertisementDto>> getJobAdvertisementDetails(){

@@ -53,9 +53,11 @@ public class Cv {
 	@Column(name = "is_active")
 	private boolean isActive;
 
+	@JsonIgnore
 	@Column(name = "release_date")
 	private LocalDate releaseDate;
 
+	@JsonIgnore
 	@Column(name = "last_update_date")
 	private LocalDate lastUpdateDate;
 

@@ -17,6 +17,7 @@ public interface CvDao extends JpaRepository<Cv, Integer> {
 //			+ " From User u,Candidate c,Cv z")
 //	List<CvDto> getCvDetails();
 	
+	Cv findById(int id);
 	
 	
 	
